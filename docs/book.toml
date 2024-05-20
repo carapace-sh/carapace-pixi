@@ -1,0 +1,22 @@
+[book]
+authors = ["rsteube"]
+language = "en"
+multilingual = false
+src = "src"
+title = "carapace-pixi"
+description = "Carapace Picture Book"
+
+[output.html]
+default-theme = "Latte"
+preferred-dark-theme = "Mocha"
+additional-css = ["asciinema/asciinema-player.css", "./theme/catppuccin.css"]
+additional-js = ["asciinema/asciinema-player.min.js", "asciinema/load.js"]
+git-repository-url = "https://github.com/carapace-sh/carapace-pixi"
+edit-url-template = "https://github.com/carapace-sh/carapace-pixi/edit/master/docs/{path}"
+
+[output.html.fold]
+enable = true
+
+[output.linkcheck]
+follow-web-links = true
+exclude = [ 'archlinux\.org', 'carapace-sh.github.io/carapace-pixi' ]
