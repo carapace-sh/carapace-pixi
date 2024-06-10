@@ -1,0 +1,27 @@
+name: doc
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  doc:
+    runs-on: ubuntu-latest
+    container: ghcr.io/carapace-sh/carapace
+    steps:
+      - uses: actions/checkout@v4
+      - name: "build docs"
+        run: mdbook build docs
+
+      - name: "push gh-pages"
+        if: github.ref == 'refs/heads/master'
+        run: |
+            cd docs/book/
+            git init
+            git config user.name rsteube
+            git config user.email rsteube@users.noreply.github.com
+            git add .
+            git commit -m "initial commit [ci skip]"
+            git push --force https://rsteube:${GITHUB_TOKEN}@github.com/carapace-sh/carapace-pixi.git master:gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
