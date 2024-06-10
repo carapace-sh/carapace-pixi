@@ -44,3 +44,4 @@ But some, like `gh repo clone`, use it for something else.
 [convention]:https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html
 [embedded]:https://carapace-sh.github.io/carapace-bin/spec/embed.html
 [pandora's box]:https://github.com/carapace-sh/carapace-pflag
+[Flag]:https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option

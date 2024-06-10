@@ -24,3 +24,6 @@ Like [Flag]s consuming multiple arguments.
 Or using a different delimiter than `=`.
 
 ![80x12@0:9](./overlyAttachedArgument/nonposix.cast)
+
+
+[Flag]:https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option
