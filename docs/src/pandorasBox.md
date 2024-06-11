@@ -4,7 +4,7 @@
 
 Arguments passed to an application are positional.
 This means they have a specific order in which they appear.
-But some can be logically declared as [Flag]s.
+But some can be logically declared as [Flags].
 How this is done, however, is entirely up to the author.
 
 
@@ -27,7 +27,7 @@ Some even mix different formats.
 
 ![80x12@0:18](./pandorasBox/nonposix.cast)
 
-> [Carapace] opened [pandora's box] to support these. But avoid them if you can.
+> [Carapace] [forked pflag] to support these. But avoid them if you can.
 
 ## Dash
 
@@ -41,5 +41,5 @@ But some, like `gh repo clone`, use it for something else.
 [Carapace]:https://carapace.sh
 [convention]:https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html
 [embedded]:https://carapace-sh.github.io/carapace-bin/spec/embed.html
-[pandora's box]:https://github.com/carapace-sh/carapace-pflag
-[Flag]:https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option
+[forked pflag]:https://github.com/carapace-sh/carapace-pflag
+[Flags]:https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option

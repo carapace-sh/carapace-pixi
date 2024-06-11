@@ -2,7 +2,7 @@
 
 ![](./spectacularCitizen/banner.png)
 
-Simple completes can be created using `YAML` [Specs].
+Simple completions can be created using `YAML` [Specs].
 They are first-class citizens in [Carapace] and behave similar to the internal completers.
 
 
@@ -15,7 +15,7 @@ And [Completions] using an array of [Values] and [Macros].
 
 ## Macro
 
-[Macros] are [Actions] exposed with a little regex and reflection magic.
+With a little regex and reflection magic [Actions] are exposed as [Macros].
 There are [Core], [Modifier], and [Custom Macros].
 
 ![80x12@0:10](./spectacularCitizen/macro.cast)

@@ -18,6 +18,7 @@ But with some [trickery](https://stackoverflow.com/a/10130007) these can be adde
 Then there are more complicated topics.
 Like [Wordbreaks], where you must return a substring of the value to be inserted.
 And [Redirects], which are passed unfiltered to the completion function.
+
 [Carapace] had to resort to its [Lexer] to handle these correctly.
 
 > You really don't want to write completions for [Bash]. I went all green on this one.
