@@ -55,9 +55,10 @@ Learning it takes some effort and there are limitations and traps as well.
 Coloring for example is done using complicated and slow regex matching.
 It is thus mostly used for file completion (`LS_COLORS`) and rarely seen in custom scripts.
 
-[Carapace] adopted [Styles] from [Elvish]. A human-readable abstraction of [ANSI Escape Sequences].
 
 ![80x12@0:11](./hulkBash/style.cast)
+
+[Carapace] adopted [Styles] from [Elvish] for this. A human-readable abstraction of [ANSI Escape Sequences].
 
 > See [Puking Rainbows] for how this works in detail.
 
