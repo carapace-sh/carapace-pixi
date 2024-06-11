@@ -12,7 +12,7 @@ Commands using the [combined] or [detached] approach can be invoked for completi
 
 ## Shell
 
-Shells are a bit trickier and require [nasty scripting].
+Shells are a bit trickier and may require [nasty scripting].
 
 ![80x12@0:16](./wiretap/shell.cast)
 
