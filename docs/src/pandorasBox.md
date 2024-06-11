@@ -32,7 +32,7 @@ Some even mix different formats.
 ## Dash
 
 The `--` argument is a special case and disables flag parsing for arguments following it.
-But how it is handled differs between applications.
+However, how it is handled differs between applications.
 Many simply continue the positional arguments.
 But some, like `gh repo clone`, use it for something else.
 

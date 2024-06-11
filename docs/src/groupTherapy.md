@@ -3,7 +3,7 @@
 ![](./groupTherapy/banner.png)
 
 Values can not only be [styled], they can also be [tagged].
-The former may signify the state of a value, and the latter classify it.
+The former may signify the state of a value, and the latter classifies it.
 
 ## Implicit
 

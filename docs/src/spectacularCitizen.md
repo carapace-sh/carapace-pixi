@@ -3,7 +3,7 @@
 ![](./spectacularCitizen/banner.png)
 
 Simple completions can be created using `YAML` [Specs].
-They are first-class citizens in [Carapace] and behave similar to the internal completers.
+They are first-class citizens in [Carapace] and behave similarly to the internal completers.
 
 
 ## Basic

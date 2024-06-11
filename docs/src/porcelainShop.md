@@ -3,11 +3,11 @@
 ![](./porcelainShop/banner.png)
 
 Shell completion is hard. Really hard.
-And there are all sorts of traps which make you break things unknowingly.
+And there are all sorts of traps that make you break things unknowingly.
 
 ## How it works
 
-A function gets passed the current commandline up to the cursor position splitted into words.
+A function gets passed the current command line up to the cursor position split into words.
 
 ```sh
 command --flag1 positionalArg1 "positionalArg2 with space" <TAB>
@@ -20,7 +20,7 @@ posArg3
 positionalArg3
 ```
 
-## The Native approach
+## The Native Approach
 
 Here, the logic to generate the possible values is done in a native shell script.
 But writing these isn't easy and tends to become complicated quickly.
@@ -29,7 +29,7 @@ So everyone ends up making the same mistakes. Over and over again.
 
 > Have a look at the [script](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash) powering your `git` completion. It is as impressive as it is scary.
 
-## The Generator approach
+## The Generator Approach
 
 Since writing them is so hard some argument parsers generate them.
 This avoids common mistakes and keeps the script in sync with the application.
@@ -38,7 +38,7 @@ Writing a good generator is even harder than writing a completion script.
 So there are inconsistencies between shells.
 If they are supported at all.
 
-## The Combined approach
+## The Combined Approach
 
 Here, a part of the logic is delegated to the application.
 It handles complex value generation.
@@ -47,11 +47,11 @@ Then returns these to the shell script.
 But this still relies on shell functions and suffers from the same issues as above.
 
 
-## The Detached approach
+## The Detached Approach
 
 Now let's take this one step further.
 By not relying on the shell we can reduce the completion script to a minimum using a clear [interface](https://carapace-sh.github.io/carapace/carapace/export.html).
-All it does is pass information between shell and application.
+All it does is pass information between the shell and the application.
 This poses some challenges as well of course.
 But it ensures consistency between shells.
 And enables highly advanced features.

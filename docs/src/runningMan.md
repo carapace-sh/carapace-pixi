@@ -12,7 +12,7 @@
 
 ## Script
 
-[Scripts] are executed with `sh` on unix systems and `pwsh` on windows.
+[Scripts] are executed with `sh` on Unix systems and `pwsh` on Windows.
 
 ![80x12@0:6](./runningMan/script.cast)
 

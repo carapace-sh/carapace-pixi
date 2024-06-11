@@ -2,15 +2,15 @@
 
 ![](./overlyAttachedArgument/banner.png)
 
-[Flag]s can also take an argument. And there are multiple variants to this.
+[Flags] can also take an argument. And there are multiple variants to this.
 
 
 ## POSIX
 
-[Flag]s that require an argument consume the one next on the commandline.
+[Flags] that require an argument consume the one next on the command line.
 But it can also attached directly to it with a `=` delimiter.
-And for shorthands it can even be left out.
-[Flag]s that take an optional argument do so only in the attached version.
+And for shorthands, it can even be left out.
+[Flags] that take an optional argument do so only in the attached version.
 
 ![80x12@0:18](./overlyAttachedArgument/posix.cast)
 
@@ -20,10 +20,10 @@ And for shorthands it can even be left out.
 
 There are also some less recommended variants.
 
-Like [Flag]s consuming multiple arguments.
+Like [Flags] consuming multiple arguments.
 Or using a different delimiter than `=`.
 
 ![80x12@0:9](./overlyAttachedArgument/nonposix.cast)
 
 
-[Flag]:https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option
+[Flags]:https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option

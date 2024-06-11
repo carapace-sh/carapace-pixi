@@ -2,7 +2,7 @@
 
 ![](./greenwashing/banner.png)
 
-[Carapace] completes environment [variables] with `get-env`, `set-env` and `unset-env`.
+[Carapace] completes environment [variables] with `get-env`, `set-env`, and `unset-env`.
 
 ## Complex
 
@@ -12,17 +12,18 @@ Be it log levels for `CARGO_LOG`, repositories for `GH_REPO`, or a command with 
 
 ## Custom
 
-Or custom variables that can use the same [Macro]s as in [Spec]s .
+Or custom variables that can use the same [Macro]s as in [Specs].
 
 ![80x12@0:62](./greenwashing/custom.cast)
 
 ## Conditional
 
-> TODO text
+With [Conditions], they can be shown only when they matter.
 
 ![80x12@0:46.5](./greenwashing/condition.cast)
 
 [Carapace]:https://carapace.sh
 [variables]:https://carapace-sh.github.io/carapace-bin/variable.html
 [Macro]:https://carapace-sh.github.io/carapace-bin/spec/macros.html
-[Spec]:https://carapace-sh.github.io/carapace-bin/spec.html
+[Specs]:https://carapace-sh.github.io/carapace-bin/spec.html
+[Conditions]:https://carapace-sh.github.io/carapace-bin/variable/conditions.html

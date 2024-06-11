@@ -3,7 +3,7 @@
 ![](./hulkBash/banner.png)
 
 [Carapace] supports all major shells.
-It does not rely on shell specific functions and even has its own file completion.
+It does not rely on shell-specific functions and even has its own custom file completion.
 This way it can provide features that not only are consistent across shells.
 But exceed what they natively provide.
 
@@ -11,7 +11,7 @@ But exceed what they natively provide.
 
 Take [Bash] for example. What a nasty little bugger.
 By default [Bash] has no support for descriptions.
-But with some [trickery](https://stackoverflow.com/a/10130007) these can be added.
+But with some [trickery](https://stackoverflow.com/a/10130007), these can be added.
 
 ![80x12@0:3](./hulkBash/bashDescriptions.cast)
 
@@ -28,7 +28,7 @@ And [Redirects], which are passed unfiltered to the completion function.
 [Fish] is a bit more advanced and has a modal completion menu with descriptions.
 
 It also takes care of correctly escaping special characters in the values.
-And provides a basic framework to create completion scripts.
+And provides a basic framework for creating completion scripts.
 
 But replicating a complex argument structure isn't easy and subcommand determination is rather [optimistic](https://github.com/fish-shell/fish-shell/issues/7107#issuecomment-653951801).
 
@@ -49,9 +49,9 @@ It is a widely adopted and battle-hardened argument parser that does this withou
 
 ## Zsh
 
-Betwen shells, [Zsh] so far has the most sophisticated framework for writing completions.
+Between shells, [Zsh] so far has the most sophisticated framework for writing completions.
 
-But it might be be a bit too complex.
+But it might be a bit too complex.
 Learning it takes some effort and there are limitations and traps as well.
 Coloring for example is done using complicated and slow regex matching.
 It is thus mostly used for file completion (`LS_COLORS`) and rarely seen in custom scripts.
