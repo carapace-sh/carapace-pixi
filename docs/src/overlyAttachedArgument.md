@@ -8,8 +8,8 @@
 ## POSIX
 
 [Flags] that require an argument consume the one next on the command line.
-But it can also attached directly to it with a `=` delimiter.
-And for shorthands, it can even be left out.
+But it can also attached directly the name with a `=` delimiter.
+And for shorthands, the delimiter can even be left out.
 [Flags] that take an optional argument do so only in the attached version.
 
 ![80x12@0:18](./overlyAttachedArgument/posix.cast)
