@@ -3,12 +3,11 @@
 ![](./groupTherapy/banner.png)
 
 Values can not only be [styled], they can also be [tagged].
-The former can signify the state of a value, and the latter classify it.
-Based on these [Zsh] arranges them in a groups.
+The former may signify the state of a value, and the latter classify it.
 
 ## Implicit
 
-Subcommands are implicitly [tagged] and [styled].
+Subcommands are implicitly [tagged] and [styled] based on their group.
 
 ![80x12@0:3](./groupTherapy/implicit.cast)
 
@@ -21,4 +20,3 @@ Other values can be [tagged] explicitly.
 
 [styled]:https://carapace-sh.github.io/carapace/carapace/action/style.html
 [tagged]:https://carapace-sh.github.io/carapace/carapace/action/tag.html
-[Zsh]:https://www.zsh.org/

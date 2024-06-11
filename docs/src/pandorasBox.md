@@ -38,8 +38,6 @@ But some, like `gh repo clone`, use it for something else.
 
 ![80x12@0:22](./pandorasBox/dash.cast)
 
-> The `git clone` flag completion here is not rewritten but [embedded].
-
 [Carapace]:https://carapace.sh
 [convention]:https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html
 [embedded]:https://carapace-sh.github.io/carapace-bin/spec/embed.html
