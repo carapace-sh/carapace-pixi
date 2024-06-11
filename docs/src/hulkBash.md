@@ -58,7 +58,7 @@ It is thus mostly used for file completion (`LS_COLORS`) and rarely seen in cust
 
 ![80x12@0:11](./hulkBash/style.cast)
 
-[Carapace] adopted [Styles] from [Elvish] for this. A human-readable abstraction of [ANSI Escape Sequences].
+[Carapace] adopted [Styles] from [Elvish]. A human-readable abstraction of [ANSI Escape Sequences].
 
 > See [Puking Rainbows] for how this works in detail.
 
