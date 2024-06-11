@@ -12,7 +12,7 @@ Be it log levels for `CARGO_LOG`, repositories for `GH_REPO`, or a command with 
 
 ## Custom
 
-Or custom variables that can use the same [Macro]s as in [Specs].
+Or custom variables that can use the same [Macros] as in [Specs].
 
 ![80x12@0:62](./greenwashing/custom.cast)
 
@@ -24,6 +24,6 @@ With [Conditions], they can be shown only when they matter.
 
 [Carapace]:https://carapace.sh
 [variables]:https://carapace-sh.github.io/carapace-bin/variable.html
-[Macro]:https://carapace-sh.github.io/carapace-bin/spec/macros.html
+[Macros]:https://carapace-sh.github.io/carapace-bin/spec/macros.html
 [Specs]:https://carapace-sh.github.io/carapace-bin/spec.html
 [Conditions]:https://carapace-sh.github.io/carapace-bin/variable/conditions.html
