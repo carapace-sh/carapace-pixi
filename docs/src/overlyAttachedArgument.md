@@ -8,7 +8,7 @@
 ## POSIX
 
 [Flags] that require an argument consume the one next on the command line.
-But it can also attached directly to the name with a `=` delimiter.
+But it can also be attached directly to the name with a `=` delimiter.
 And for shorthands, the delimiter can even be left out.
 [Flags] that take an optional argument do so only in the attached version.
 
