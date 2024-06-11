@@ -2,7 +2,7 @@
 
 ![](./runningMan/banner.png)
 
-[Spec]s containing a `run` field can be [executed] using [Shim]s.
+[Specs] containing a `run` field can be [executed] using [Shims].
 
 ## Alias
 
@@ -13,7 +13,7 @@
 ## Script
 
 A [Script] macro is executed with `sh` on unix systems and `pwsh` on windows.
-Flags are used for environment substitution and positional arguments are passed to the script.
+Flags are exposed for environment variable substitution and positional arguments are passed to the script.
 
 ![80x12@0:6](./runningMan/script.cast)
 
@@ -26,6 +26,6 @@ And enriched with custom [Script]s.
 
 [Alias]:https://carapace-sh.github.io/carapace-bin/spec/run.html#alias
 [executed]:https://carapace-sh.github.io/carapace-bin/spec/run.html
-[Spec]:https://carapace-sh.github.io/carapace-bin/spec.html
-[Shim]:https://carapace-sh.github.io/carapace-bin/spec/shim.html
+[Specs]:https://carapace-sh.github.io/carapace-bin/spec.html
+[Shims]:https://carapace-sh.github.io/carapace-bin/spec/shim.html
 [Script]:https://carapace-sh.github.io/carapace-bin/spec/run.html#script
