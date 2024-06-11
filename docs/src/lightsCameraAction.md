@@ -29,7 +29,7 @@ This enables a modified behavior based on work directory, environment variables,
 
 ## Modular
 
-Multiple [Action]s can be invoked [concurrently] and [merged] into one.
+Multiple [Actions] can be invoked [concurrently] and [merged] into one.
 
 Like `tig`, which accepts subcommands, files, and git references like tags and branches.
 Each of these is a separate [Action].
@@ -37,6 +37,7 @@ Each of these is a separate [Action].
 ![80x12@0:5](./lightsCameraAction/modular.cast)
 
 [Action]:https://carapace-sh.github.io/carapace/carapace/action.html
+[Actions]:https://carapace-sh.github.io/carapace/carapace/action.html
 [ActionOwners]:https://pkg.go.dev/github.com/carapace-sh/carapace-bin/pkg/actions/tools/gh#ActionOwners
 [ActionRepositories]:https://pkg.go.dev/github.com/carapace-sh/carapace-bin/pkg/actions/tools/gh#ActionRepositories
 
