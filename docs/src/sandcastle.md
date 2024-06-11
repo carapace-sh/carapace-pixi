@@ -21,7 +21,7 @@ gh api --method {{METHOD}} {{API_PATH}}
 ```
 
 ```handlebars
-gh alias create NAME {{COMMAND}}
+gh alias set NAME {{COMMAND}}
 ```
 
 ```handlebars
