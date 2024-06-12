@@ -6,7 +6,7 @@
 
 ## Command
 
-Commands using the [combined] or [detached] approach can be invoked for completion.
+Commands using the [combined] or [detached] approach can simply be invoked.
 
 ![80x12@0:6](./wiretap/command.cast)
 
@@ -32,7 +32,7 @@ There is also a [config] alternative for convenience.
 
 ## Implicit
 
-Other completion sources can [implicitly] be used for commands unknown to [Carapace].
+Other completion sources can be configured for an [implicit] fallback.
 
 ![80x12@0:11.5](./wiretap/implicit.cast)
 
@@ -45,5 +45,5 @@ Other completion sources can [implicitly] be used for commands unknown to [Carap
 [embedding]:https://carapace-sh.github.io/carapace-bin/spec/embed.html
 [Specs]:https://carapace-sh.github.io/carapace-bin/spec.html
 [nasty scripting]:https://github.com/Valodim/zsh-capture-completion/blob/master/capture.zsh
-[implicitly]:https://carapace-sh.github.io/carapace-bin/setup/environment.html#carapace_bridges
+[implicit]:https://carapace-sh.github.io/carapace-bin/setup/environment.html#carapace_bridges
 [Bridges]:https://carapace-sh.github.io/carapace-bin/spec/bridge.html
