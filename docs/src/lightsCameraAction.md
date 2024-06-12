@@ -31,7 +31,7 @@ This enables a modified behavior based on work directory, environment variables,
 
 Multiple [Actions] can be invoked [concurrently] and [merged] into one.
 
-Like `tig`, which accepts subcommands, files, and git references like tags and branches.
+Like `tig`, which accepts subcommands, files, and git references.
 Each of these is a separate [Action].
 
 ![80x12@0:5](./lightsCameraAction/modular.cast)
