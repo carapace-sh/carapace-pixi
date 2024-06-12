@@ -44,7 +44,7 @@ git -C {{FOLDER}} log {{REF}}
 git add {{MODIFIED_FILES}}
 ```
 
-```sh
+```handlebars
 gh issue view {{ISSUE}}
 set-env GH_REPO {{REPO}}
 gh issue view {{ISSUE}}
