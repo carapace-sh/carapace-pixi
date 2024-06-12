@@ -45,7 +45,7 @@ function __fish_seen_subcommand_from
 end
 ```
 [Carapace] relies on the work done in [spf13/cobra].
-It is a widely adopted and battle-hardened argument parser that does this without guesswork.
+It is a widely adopted argument parser that does this without guesswork.
 
 ## Zsh
 
