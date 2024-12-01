@@ -27,6 +27,7 @@ Refer to [Install] and [Setup] to get it up and running on your system.
 | [carapace-bin](https://github.com/carapace-sh/carapace-bin)  | binary |
 | [carapace-bridge](https://github.com/carapace-sh/carapace-bridge)  | completion bridge for various frameworks |
 | [carapace-pflag](https://github.com/carapace-sh/carapace-pflag)  | flag parser for non-posix variants |
+| [carapace-selfupdate](https://github.com/carapace-sh/carapace-selfupdate)  | simple self-update mechanism |
 | [carapace-shlex](https://github.com/carapace-sh/carapace-shlex)  | lexer for complex single string arguments |
 | [carapace-spec](https://github.com/carapace-sh/carapace-spec)  | YAML spec for custom completions  |
 | **Scraper** | |
