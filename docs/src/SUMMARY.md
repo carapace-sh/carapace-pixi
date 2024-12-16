@@ -11,4 +11,5 @@
 - [Running Man](./runningMan.md)
 - [Greenwashing](./greenwashing.md)
 - [Wiretap](./wiretap.md)
+- [Art Exchange](./artExchange.md)
 - [Sandcastle](./sandcastle.md)
