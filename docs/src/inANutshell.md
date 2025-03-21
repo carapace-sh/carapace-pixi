@@ -17,6 +17,7 @@ Refer to [Install] and [Setup] to get it up and running on your system.
 | Link | Description |
 |--|--|
 | [carapace.sh](https://carapace.sh)  | website with examples  |
+| [freckles.carapace.sh](https://freckles.carapace.sh)  | example application  |
 | **Documentation** | |
 | [carapace-sh.github.io/carapace](https://carapace-sh.github.io/carapace) | documentation of the library |
 | [carapace-sh.github.io/carapace-bin](https://carapace-sh.github.io/carapace-bin) | documentation of the binary |
