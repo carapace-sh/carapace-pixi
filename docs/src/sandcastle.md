@@ -18,7 +18,7 @@ Tests ensure [Carapace] plays well with your shell.
 
 ## VHS
 
-[VHS] visually validates the behaviour in a virtual terminal. 
+[VHS] visually confirms the behaviour in a virtual terminal. 
 
 ![](./sandcastle/vhs.gif)
 
