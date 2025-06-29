@@ -19,4 +19,9 @@ enable = true
 
 [output.linkcheck]
 follow-web-links = true
-exclude = [ 'archlinux\.org', 'carapace-sh.github.io/carapace-pixi', 'gnu\.org' ]
+exclude = [
+  'archlinux\.org',
+  'carapace-sh.github.io/carapace-pixi',
+  'gnu\.org',
+  'stackoverflow\.com',
+]
