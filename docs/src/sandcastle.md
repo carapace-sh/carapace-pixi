@@ -4,9 +4,9 @@
 
 Tests ensure [Carapace] plays well with your shell.
 
-## Assert
+## Action
 
-**Assert** compares two [InvokedActions].
+[Assert] compares [InvokedActions].
 
 ![80x12@0:11](./sandcastle/action.cast)
 
@@ -22,6 +22,7 @@ Tests ensure [Carapace] plays well with your shell.
 
 ![](./sandcastle/vhs.gif)
 
+[Assert]:https://pkg.go.dev/github.com/carapace-sh/carapace/pkg/assert
 [Carapace]:https://carapace.sh
 [InvokedActions]:https://carapace-sh.github.io/carapace/carapace/invokedAction.html
 [Sandbox]:https://carapace-sh.github.io/carapace/carapace/sandbox.html
