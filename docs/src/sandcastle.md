@@ -2,55 +2,27 @@
 
 ![](./sandcastle/banner.png)
 
-Not sure what to play with? Here are some ideas.
+Tests ensure [Carapace] plays well with your shell.
 
-```handlebars
-git clone {{REPO}}
-```
+## Assert
 
-```handlebars
-git checkout {{REF}} {{DIFF_FILE}}
-```
+**Assert** compares two [InvokedActions].
 
-```handlebars
-git show {{REF}}
-git show REF~{{RELATIVE_REF}}
-git show REF~RELATIVE_REF~{{RELATIVE_REF}}
-git show REF~RELATIVE_REF~RELATIVE_REF:{{REF_FILE}}
-```
+![80x12@0:11](./sandcastle/action.cast)
 
-```handlebars
-git log {{REF}}
-git -C {{FOLDER}} log {{REF}}
-```
+## Sandbox
 
-```handlebars
-git add {{MODIFIED_FILE}}
-```
+[Sandbox] runs a command in a temporary folder and validates its output.
 
-```handlebars
-gh repo clone {{REPO}} -- --branch {{BRANCH}}
-```
+![80x12@0:14](./sandcastle/sandbox.cast)
 
-```handlebars
-gh issue list --repo {{REPOS}} --label {{LABEL}}
-```
+## VHS
 
-```handlebars
-gh browse --repo {{REPO}} --branch {{BRANCH}} /{{FILE}}
-```
+[VHS] visually validates the behaviour in a virtual terminal. 
 
-```handlebars
-gh api --method {{METHOD}} {{API_PATH}}
-```
+![](./sandcastle/vhs.gif)
 
-```handlebars
-gh alias set NAME {{COMMAND}}
-```
-
-```handlebars
-gh issue view {{ISSUE}}
-set-env GH_REPO {{REPO}}
-gh issue view {{ISSUE}}
-unset-env {{ENV}}
-```
+[Carapace]:https://carapace.sh
+[InvokedActions]:https://carapace-sh.github.io/carapace/carapace/invokedAction.html
+[Sandbox]:https://carapace-sh.github.io/carapace/carapace/sandbox.html
+[VHS]:https://carapace-sh.github.io/carapace/development/vhs.html
