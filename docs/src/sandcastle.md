@@ -4,7 +4,7 @@
 
 Tests ensure [Carapace] plays well with your shell.
 
-## Action
+## Assert
 
 [Assert] compares [InvokedActions].
 
