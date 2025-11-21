@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html lang="en" class="latte sidebar-visible" dir="ltr">
+    <head>
+        <meta property="og:image" content=https://pixi.carapace.sh/inANutshell/banner.png />
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>carapace-pixi</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Carapace Picture Book">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="asciinema/asciinema-player.css">
+        <link rel="stylesheet" href="./theme/catppuccin.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "latte";
+            const default_dark_theme = "mocha";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('latte')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">carapace-pixi</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/carapace-sh/carapace-pixi" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="in-a-nutshell"><a class="header" href="#in-a-nutshell">In A Nutshell</a></h1>
+<p><img src="./inANutshell/banner.png" alt="" /></p>
+<p><a href="https://carapace.sh">Carapace</a> is a shell completion library (<a href="https://github.com/carapace-sh/carapace">carapace-sh/carapace</a>) as well as a binary containing a collection of shell completers (<a href="https://github.com/carapace-sh/carapace-bin">carapace-sh/carapace-bin</a>).
+It works across multiple operating systems and multiple POSIX and non-POSIX shells.</p>
+<h2 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h2>
+<p>Refer to <a href="https://carapace-sh.github.io/carapace-bin/install.html">Install</a> and <a href="https://carapace-sh.github.io/carapace-bin/setup.html">Setup</a> to get it up and running on your system.</p>
+<blockquote>
+<p>You can use any shell you want, but it is highly recommended to give <a href="https://elv.sh">Elvish</a> a try.
+Not only shows it best what <a href="https://carapace.sh">Carapace</a> can do. It is pretty awesome anyway.</p>
+</blockquote>
+<h2 id="links"><a class="header" href="#links">Links</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Link</th><th>Description</th></tr></thead><tbody>
+<tr><td><a href="https://carapace.sh">carapace.sh</a></td><td>website</td></tr>
+<tr><td><a href="https://freckles.carapace.sh">freckles.carapace.sh</a></td><td>example application</td></tr>
+<tr><td><strong>Documentation</strong></td><td></td></tr>
+<tr><td><a href="https://carapace-sh.github.io/carapace">carapace-sh.github.io/carapace</a></td><td>documentation of the library</td></tr>
+<tr><td><a href="https://carapace-sh.github.io/carapace-bin">carapace-sh.github.io/carapace-bin</a></td><td>documentation of the binary</td></tr>
+<tr><td><a href="https://carapace-sh.github.io/carapace-spec">carapace-sh.github.io/carapace-spec</a></td><td>documentation of the spec</td></tr>
+<tr><td><a href="https://carapace-sh.github.io/carapace-pixi">carapace-sh.github.io/carapace-pixi</a></td><td>picture book introduction</td></tr>
+<tr><td><strong>Core Projects</strong></td><td></td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace">carapace</a></td><td>library</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-bin">carapace-bin</a></td><td>binary</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-bridge">carapace-bridge</a></td><td>completion bridge for various frameworks</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-pflag">carapace-pflag</a></td><td>flag parser for non-posix variants</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-selfupdate">carapace-selfupdate</a></td><td>simple self-update mechanism</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-shlex">carapace-shlex</a></td><td>lexer for complex single string arguments</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-spec">carapace-spec</a></td><td>YAML spec for custom completions</td></tr>
+<tr><td><strong>Scraper</strong></td><td></td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-spec-clap">carapace-spec-clap</a></td><td>spec generation for clap-rs/clap</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-spec-kingpin">carapace-spec-kingpin</a></td><td>spec generation for alecthomas/kingpin</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-spec-kong">carapace-spec-kong</a></td><td>spec generation for alecthomas/kong</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-spec-man">carapace-spec-man</a></td><td>spec generation for manpages</td></tr>
+<tr><td><a href="https://github.com/carapace-sh/carapace-spec-urfavecli">carapace-spec-urfavecli</a></td><td>spec generation for urfave/cli</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="porcelain-shop"><a class="header" href="#porcelain-shop">Porcelain Shop</a></h1>
+<p><img src="./porcelainShop/banner.png" alt="" /></p>
+<p>Shell completion is hard. Really hard.
+And there are all sorts of traps that make you break things unknowingly.</p>
+<h2 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h2>
+<p>A function gets passed the current command line up to the cursor position split into words.</p>
+<pre><code class="language-sh">command --flag1 positionalArg1 "positionalArg2 with space" &lt;TAB&gt;
+# ['command', '--flag1', 'positionalArg1', 'positionalArg2 with space', '']
+</code></pre>
+<p>It then returns possible values to replace the current word with.</p>
+<pre><code class="language-sh">posArg3
+positionalArg3
+</code></pre>
+<h2 id="the-native-approach"><a class="header" href="#the-native-approach">The Native Approach</a></h2>
+<p>Here, the logic to generate the possible values is done in a native shell script.
+But writing these isn't easy and tends to become complicated quickly.
+Few shells even provide a decent framework for it.
+So everyone ends up making the same mistakes. Over and over again.</p>
+<blockquote>
+<p>Have a look at the <a href="https://github.com/git/git/blob/master/contrib/completion/git-completion.bash">script</a> powering your <code>git</code> completion. It is as impressive as it is scary.</p>
+</blockquote>
+<h2 id="the-generator-approach"><a class="header" href="#the-generator-approach">The Generator Approach</a></h2>
+<p>Since writing them is so hard some argument parsers generate them.
+This avoids common mistakes and keeps the script in sync with the application.
+It is however still bound to the limits of the shell.
+Writing a good generator is even harder than writing a completion script.
+So there are inconsistencies between shells.
+If they are supported at all.</p>
+<h2 id="the-combined-approach"><a class="header" href="#the-combined-approach">The Combined Approach</a></h2>
+<p>Here, a part of the logic is delegated to the application.
+It handles complex value generation.
+Like retrieving data from a service.
+Then returns these to the shell script.
+But this still relies on shell functions and suffers from the same issues as above.</p>
+<h2 id="the-detached-approach"><a class="header" href="#the-detached-approach">The Detached Approach</a></h2>
+<p>Now let's take this one step further.
+By not relying on the shell we can reduce the completion script to a minimum using a clear <a href="https://carapace-sh.github.io/carapace/carapace/export.html">interface</a>.
+All it does is pass information between the shell and the application.
+This poses some challenges as well of course.
+But it ensures consistency between shells.
+And enables highly advanced features.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hulk-bash"><a class="header" href="#hulk-bash">Hulk BASH!</a></h1>
+<p><img src="./hulkBash/banner.png" alt="" /></p>
+<p><a href="https://carapace.sh">Carapace</a> supports all major shells.
+It does not rely on shell-specific functions and even has its own custom file completion.
+This way it can provide features that not only are consistent across shells.
+But exceed what they natively provide.</p>
+<h2 id="bash"><a class="header" href="#bash">Bash</a></h2>
+<p>Take <a href="https://www.gnu.org/software/bash/">Bash</a> for example. What a nasty little bugger.
+By default <a href="https://www.gnu.org/software/bash/">Bash</a> has no support for descriptions.
+But with some <a href="https://stackoverflow.com/a/10130007">trickery</a>, these can be added.</p>
+<p><img src="./hulkBash/bashDescriptions.cast" alt="80x12@0:3" /></p>
+<p>Then there are more complicated topics.
+Like <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-COMP_005fWORDBREAKS">Wordbreaks</a>, where you must return a substring of the value to be inserted.
+And <a href="https://www.gnu.org/software/bash/manual/html_node/Redirections.html">Redirects</a>, which are passed unfiltered to the completion function.</p>
+<p><a href="https://carapace.sh">Carapace</a> had to resort to its <a href="https://github.com/carapace-sh/carapace-shlex">Lexer</a> to handle these correctly.</p>
+<blockquote>
+<p>You really don't want to write completions for <a href="https://www.gnu.org/software/bash/">Bash</a>. I went all green on this one.</p>
+</blockquote>
+<h2 id="fish"><a class="header" href="#fish">Fish</a></h2>
+<p><a href="https://fishshell.com/">Fish</a> is a bit more advanced and has a modal completion menu with descriptions.</p>
+<p>It also takes care of correctly escaping special characters in the values.
+And provides a basic framework for creating completion scripts.</p>
+<p>But replicating a complex argument structure isn't easy and subcommand determination is rather <a href="https://github.com/fish-shell/fish-shell/issues/7107#issuecomment-653951801">optimistic</a>.</p>
+<pre><code class="language-sh">function __fish_seen_subcommand_from
+    set -l cmd (commandline -pxc)
+    set -e cmd[1]
+    for i in $cmd
+        if contains -- $i $argv
+            return 0
+        end
+    end
+    return 1
+end
+</code></pre>
+<p><a href="https://carapace.sh">Carapace</a> relies on the work done in <a href="https://github.com/spf13/cobra">spf13/cobra</a>.
+It is a widely adopted argument parser that does this without guesswork.</p>
+<h2 id="zsh"><a class="header" href="#zsh">Zsh</a></h2>
+<p>Between shells, <a href="https://www.zsh.org/">Zsh</a> so far has the most sophisticated framework for writing completions.</p>
+<p>But it might be a bit too complex.
+Learning it takes some effort and there are limitations and traps as well.
+Coloring for example is done using complicated and slow regex matching.
+It is thus mostly used for file completion (<code>LS_COLORS</code>) and rarely seen in custom scripts.</p>
+<p><img src="./hulkBash/style.cast" alt="80x12@0:11" /></p>
+<p><a href="https://carapace.sh">Carapace</a> adopted <a href="https://pkg.go.dev/github.com/rsteube/carapace/pkg/style#pkg-variables">Styles</a> from <a href="https://elv.sh/">Elvish</a>. A human-readable abstraction of <a href="https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797">ANSI Escape Sequences</a>.</p>
+<blockquote>
+<p>See <a href="https://dev.to/rsteube/puking-rainbows-1pje">Puking Rainbows</a> for how this works in detail.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pandoras-box"><a class="header" href="#pandoras-box">Pandoras Box</a></h1>
+<p><img src="./pandorasBox/banner.png" alt="" /></p>
+<p>Arguments passed to an application are positional.
+This means they have a specific order in which they appear.
+But some can be logically declared as <a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option">Flags</a>.
+How this is done, however, is entirely up to the author.</p>
+<h2 id="posix"><a class="header" href="#posix">POSIX</a></h2>
+<p>A commonly used <a href="https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html">convention</a> where longhands have a <code>--</code> and shorthands a <code>-</code> prefix.
+They may appear interspersed with positional arguments and some are repeatable.
+Shorthands can also be chained.</p>
+<p><img src="./pandorasBox/posix.cast" alt="80x12@0:38" /></p>
+<h2 id="non-posix"><a class="header" href="#non-posix">Non-POSIX</a></h2>
+<p>Then there are other approaches that in most cases arguably aren't a good idea.</p>
+<p>Like shorthands with more than one character which prevents chaining.
+Or the abuse of flags as subcommands.
+And non-interspersed mode, which may be easier to parse, but limits UX.
+Some even mix different formats.</p>
+<p><img src="./pandorasBox/nonposix.cast" alt="80x12@0:18" /></p>
+<blockquote>
+<p><a href="https://carapace.sh">Carapace</a> forked <a href="https://github.com/carapace-sh/carapace-pflag">pflag</a> to support these. But avoid them if you can.</p>
+</blockquote>
+<h2 id="dash"><a class="header" href="#dash">Dash</a></h2>
+<p>The <code>--</code> argument is a special case and disables flag parsing for arguments following it.
+However, how it is handled differs between applications.
+Many simply continue the positional arguments.
+But some, like <code>gh repo clone</code>, use it for something else.</p>
+<p><img src="./pandorasBox/dash.cast" alt="80x12@0:22" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="overly-attached-argument"><a class="header" href="#overly-attached-argument">Overly Attached Argument</a></h1>
+<p><img src="./overlyAttachedArgument/banner.png" alt="" /></p>
+<p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option">Flags</a> can also take an argument. And there are multiple variants to this.</p>
+<h2 id="posix-1"><a class="header" href="#posix-1">POSIX</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option">Flags</a> that require an argument consume the one next on the command line.
+But it can also be attached directly to the name with a <code>=</code> delimiter.
+And for shorthands, the delimiter can even be left out.
+<a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option">Flags</a> that take an optional argument do so only in the attached version.</p>
+<p><img src="./overlyAttachedArgument/posix.cast" alt="80x12@0:18" /></p>
+<blockquote>
+<p>Not all commands support each of these variants.</p>
+</blockquote>
+<h2 id="non-posix-1"><a class="header" href="#non-posix-1">Non-POSIX</a></h2>
+<p>There are also some less recommended variants.</p>
+<p>Like <a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option">Flags</a> consuming multiple arguments.
+Or using a different delimiter than <code>=</code>.</p>
+<p><img src="./overlyAttachedArgument/nonposix.cast" alt="80x12@0:9" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lights-camera-action"><a class="header" href="#lights-camera-action">Lights, Camera, Action!</a></h1>
+<p><img src="./lightsCameraAction/banner.png" alt="" /></p>
+<p>An <a href="https://carapace-sh.github.io/carapace/carapace/action.html">Action</a> defines how a position is completed in <a href="https://carapace.sh">Carapace</a>.</p>
+<p>It consists of either the static values to be inserted.
+Or a function to generate them.
+Also, some <a href="https://pkg.go.dev/github.com/carapace-sh/carapace/internal/common#Meta">metadata</a>.</p>
+<h2 id="reusable"><a class="header" href="#reusable">Reusable</a></h2>
+<p>An <a href="https://carapace-sh.github.io/carapace/carapace/action.html">Action</a> is reusable.
+It can be <a href="https://carapace-sh.github.io/carapace/carapace/action/prefix.html">prefixed</a>, <a href="https://carapace-sh.github.io/carapace/carapace/action/filter.html">filtered</a>, <a href="https://carapace-sh.github.io/carapace/carapace/action/style.html">styled</a>, converted to a <a href="https://carapace-sh.github.io/carapace/carapace/action/list.html">list</a>, and even <a href="https://carapace-sh.github.io/carapace/carapace/action/cache.html">cached</a>.</p>
+<p>Take the repository completion for example.
+It consists of <a href="https://pkg.go.dev/github.com/carapace-sh/carapace-bin/pkg/actions/tools/gh#ActionOwners">ActionOwners</a> and <a href="https://pkg.go.dev/github.com/carapace-sh/carapace-bin/pkg/actions/tools/gh#ActionRepositories">ActionRepositories</a> combined in various ways.
+Originally written for <code>gh</code>, it is also used in <code>git</code>, <code>go</code>, and other commands.</p>
+<p><img src="./lightsCameraAction/ownerRepositories.cast" alt="80x12@0:9" /></p>
+<h2 id="contextual"><a class="header" href="#contextual">Contextual</a></h2>
+<p>An <a href="https://carapace-sh.github.io/carapace/carapace/action.html">Action</a> is invoked with <a href="https://carapace-sh.github.io/carapace/carapace/context.html">Context</a>.</p>
+<p>This enables a modified behavior based on work directory, environment variables, or positional arguments.</p>
+<p><img src="./lightsCameraAction/context.cast" alt="80x12@0:12" /></p>
+<h2 id="modular"><a class="header" href="#modular">Modular</a></h2>
+<p>Multiple <a href="https://carapace-sh.github.io/carapace/carapace/action.html">Actions</a> can be invoked <a href="https://carapace-sh.github.io/carapace/carapace/batch.html">concurrently</a> and <a href="https://carapace-sh.github.io/carapace/carapace/invokedAction/merge.html">merged</a> into one.</p>
+<p>Like <code>tig</code>, which accepts subcommands, files, and git references.
+Each of these is a separate <a href="https://carapace-sh.github.io/carapace/carapace/action.html">Action</a>.</p>
+<p><img src="./lightsCameraAction/modular.cast" alt="80x12@0:5" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="group-therapy"><a class="header" href="#group-therapy">Group Therapy</a></h1>
+<p><img src="./groupTherapy/banner.png" alt="" /></p>
+<p>Values can not only be <a href="https://carapace-sh.github.io/carapace/carapace/action/style.html">styled</a>, they can also be <a href="https://carapace-sh.github.io/carapace/carapace/action/tag.html">tagged</a>.
+The former may signify the state of a value, and the latter classifies it.</p>
+<h2 id="implicit"><a class="header" href="#implicit">Implicit</a></h2>
+<p>Subcommands are implicitly <a href="https://carapace-sh.github.io/carapace/carapace/action/tag.html">tagged</a> and <a href="https://carapace-sh.github.io/carapace/carapace/action/style.html">styled</a> based on their group.</p>
+<p><img src="./groupTherapy/implicit.cast" alt="80x12@0:3" /></p>
+<h2 id="explicit"><a class="header" href="#explicit">Explicit</a></h2>
+<p>Other values can be <a href="https://carapace-sh.github.io/carapace/carapace/action/tag.html">tagged</a> explicitly.</p>
+<p><img src="./groupTherapy/explicit.cast" alt="80x12@0:3" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spec-tacular-citizen"><a class="header" href="#spec-tacular-citizen">Spec-tacular Citizen</a></h1>
+<p><img src="./spectacularCitizen/banner.png" alt="" /></p>
+<p>Simple completions can be created using <code>YAML</code> <a href="https://carapace-sh.github.io/carapace-bin/spec.html">Specs</a>.
+They are first-class citizens in <a href="https://carapace.sh">Carapace</a> and behave similarly to the internal completers.</p>
+<h2 id="basic"><a class="header" href="#basic">Basic</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/command/flags.html">Flags</a> are defined as a map of name and description.
+And <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/command/completion.html">Completions</a> using an array of <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/values.html">Values</a> and <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/macros.html">Macros</a>.</p>
+<p><img src="./spectacularCitizen/user.cast" alt="80x12@0:10" /></p>
+<h2 id="macro"><a class="header" href="#macro">Macro</a></h2>
+<p>With a little regex and reflection magic <a href="https://carapace-sh.github.io/carapace/carapace/action.html">Actions</a> are exposed as <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/macros.html">Macros</a>.
+There are <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/macros/core.html">Core</a>, <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/macros/modifier.html">Modifier</a>, and <a href="https://carapace-sh.github.io/carapace-bin/spec/macros.html">Custom Macros</a>.</p>
+<p><img src="./spectacularCitizen/macro.cast" alt="80x12@0:10" /></p>
+<h2 id="envsubst"><a class="header" href="#envsubst">Envsubst</a></h2>
+<p>Contextual completion is possible using <a href="https://carapace-sh.github.io/carapace-spec/carapace-spec/variables.html">variable substitution</a>.</p>
+<p><img src="./spectacularCitizen/envsubst.cast" alt="80x12@0:10" /></p>
+<h2 id="plugin"><a class="header" href="#plugin">Plugin</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace-bin/spec.html">Specs</a> can also be <a href="https://carapace-sh.github.io/carapace-bin/spec/embed.html">embedded</a> as subcommands for plugin completion.</p>
+<p><img src="./spectacularCitizen/plugin.cast" alt="80x12@0:20" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="running-man"><a class="header" href="#running-man">Running Man</a></h1>
+<p><img src="./runningMan/banner.png" alt="" /></p>
+<p><a href="https://carapace-sh.github.io/carapace-bin/spec.html">Specs</a> containing a <code>run</code> field can be executed using <a href="https://carapace-sh.github.io/carapace-bin/spec/shim.html">Shims</a>.</p>
+<h2 id="alias"><a class="header" href="#alias">Alias</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace-bin/spec/run.html#alias">Alias</a> bridges a command while retaining the argument completion.</p>
+<p><img src="./runningMan/alias.cast" alt="80x12@0:6" /></p>
+<h2 id="script"><a class="header" href="#script">Script</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace-bin/spec/run.html#script">Scripts</a> are executed with <code>sh</code> on Unix systems and <code>pwsh</code> on Windows.</p>
+<p><img src="./runningMan/script.cast" alt="80x12@0:6" /></p>
+<h2 id="subcommand"><a class="header" href="#subcommand">Subcommand</a></h2>
+<p>Combined with subcommands a reduced set of complex commands can be created.</p>
+<p><img src="./runningMan/subcommand.cast" alt="80x12@0:10" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="greenwashing"><a class="header" href="#greenwashing">Greenwashing</a></h1>
+<p><img src="./greenwashing/banner.png" alt="" /></p>
+<p><a href="https://carapace.sh">Carapace</a> completes environment <a href="https://carapace-sh.github.io/carapace-bin/variable.html">variables</a> with <code>get-env</code>, <code>set-env</code>, and <code>unset-env</code>.</p>
+<h2 id="complex"><a class="header" href="#complex">Complex</a></h2>
+<p>Be it log levels for <code>CARGO_LOG</code>, repositories for <code>GH_REPO</code>, or a command with arguments for <code>GIT_PAGER</code>.</p>
+<p><img src="./greenwashing/complex.cast" alt="80x12@0:7" /></p>
+<h2 id="custom"><a class="header" href="#custom">Custom</a></h2>
+<p>Or custom variables that can use the same <a href="https://carapace-sh.github.io/carapace-bin/spec/macros.html">Macros</a> as in <a href="https://carapace-sh.github.io/carapace-bin/spec.html">Specs</a>.</p>
+<p><img src="./greenwashing/custom.cast" alt="80x12@0:62" /></p>
+<h2 id="conditional"><a class="header" href="#conditional">Conditional</a></h2>
+<p>With <a href="https://carapace-sh.github.io/carapace-bin/variable/conditions.html">Conditions</a>, they can be shown only when they matter.</p>
+<p><img src="./greenwashing/condition.cast" alt="80x12@0:46.5" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wiretap"><a class="header" href="#wiretap">Wiretap</a></h1>
+<p><img src="./wiretap/banner.png" alt="" /></p>
+<p><a href="https://carapace.sh">Carapace</a> can tap into other completion sources and <a href="https://github.com/carapace-sh/carapace-bridge">bridge</a> them.</p>
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<p>Commands using the <a href="./porcelainShop.html#the-combined-approach">combined</a> or <a href="./porcelainShop.html#the-detached-approach">detached</a> approach can simply be invoked.</p>
+<p><img src="./wiretap/command.cast" alt="80x12@0:6" /></p>
+<h2 id="shell"><a class="header" href="#shell">Shell</a></h2>
+<p>Shells are a bit trickier and may require <a href="https://github.com/Valodim/zsh-capture-completion/blob/master/capture.zsh">nasty scripting</a>.</p>
+<p><img src="./wiretap/shell.cast" alt="80x12@0:16" /></p>
+<h2 id="embed"><a class="header" href="#embed">Embed</a></h2>
+<p><a href="https://carapace.sh">Carapace</a> invokes itself for continuous <a href="https://carapace-sh.github.io/carapace-bin/spec/embed.html">embedding</a>.</p>
+<p><img src="./wiretap/embedding.cast" alt="80x12@0:19.5" /></p>
+<h2 id="explicit-1"><a class="header" href="#explicit-1">Explicit</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace-bin/spec/bridge.html">Bridges</a> can be registered using <a href="https://carapace-sh.github.io/carapace-bin/spec.html">Specs</a>.
+There is also a <a href="https://carapace-sh.github.io/carapace-bin/bridges.html">config</a> alternative for convenience.</p>
+<p><img src="./wiretap/explicit.cast" alt="80x12@0:10" /></p>
+<h2 id="implicit-1"><a class="header" href="#implicit-1">Implicit</a></h2>
+<p>Other completion sources can be configured for an <a href="https://carapace-sh.github.io/carapace-bin/setup/environment.html#carapace_bridges">implicit</a> fallback.</p>
+<p><img src="./wiretap/implicit.cast" alt="80x12@0:11.5" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sandcastle"><a class="header" href="#sandcastle">Sandcastle</a></h1>
+<p><img src="./sandcastle/banner.png" alt="" /></p>
+<p>Tests ensure <a href="https://carapace.sh">Carapace</a> plays well with your shell.</p>
+<h2 id="assert"><a class="header" href="#assert">Assert</a></h2>
+<p><a href="https://pkg.go.dev/github.com/carapace-sh/carapace/pkg/assert">Assert</a> compares <a href="https://carapace-sh.github.io/carapace/carapace/invokedAction.html">InvokedActions</a>.</p>
+<p><img src="./sandcastle/action.cast" alt="80x12@0:11" /></p>
+<h2 id="sandbox"><a class="header" href="#sandbox">Sandbox</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace/carapace/sandbox.html">Sandbox</a> runs a command in a temporary folder and validates its output.</p>
+<p><img src="./sandcastle/sandbox.cast" alt="80x12@0:14" /></p>
+<h2 id="vhs"><a class="header" href="#vhs">VHS</a></h2>
+<p><a href="https://carapace-sh.github.io/carapace/development/vhs.html">VHS</a> visually confirms the behaviour in a virtual terminal.</p>
+<p><img src="./sandcastle/vhs.gif" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="asciinema/asciinema-player.min.js"></script>
+        <script src="asciinema/load.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
