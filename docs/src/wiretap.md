@@ -25,8 +25,7 @@ Shells are a bit trickier and may require [nasty scripting].
 
 ## Explicit
 
-[Bridges] can be registered using [Specs].
-There is also a [config] alternative for convenience.
+[Bridges] can be registered using [Specs] or [Choices].
 
 ![80x12@0:10](./wiretap/explicit.cast)
 
@@ -39,7 +38,7 @@ Other completion sources can be configured for an [implicit] fallback.
 
 [Carapace]:https://carapace.sh
 [combined]:./porcelainShop.md#the-combined-approach
-[config]:https://carapace-sh.github.io/carapace-bin/bridges.html
+[Choices]:https://carapace-sh.github.io/carapace-bin/choices.html#bridges
 [detached]:./porcelainShop.md#the-detached-approach
 [bridge]:https://github.com/carapace-sh/carapace-bridge
 [embedding]:https://carapace-sh.github.io/carapace-bin/spec/embed.html
