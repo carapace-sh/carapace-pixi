@@ -31,6 +31,15 @@ Refer to [Install] and [Setup] to get it up and running on your system.
 | [carapace-selfupdate](https://github.com/carapace-sh/carapace-selfupdate)          | simple self-update mechanism              |
 | [carapace-shlex](https://github.com/carapace-sh/carapace-shlex)                    | lexer for complex single string arguments |
 | [carapace-spec](https://github.com/carapace-sh/carapace-spec)                      | YAML spec for custom completions          |
+| **Extensions**                                                                     |                                           |
+| [carapace-aws](https://github.com/carapace-sh/carapace-aws)                        | aws completer                             |
+| [carapace-az](https://github.com/carapace-sh/carapace-az)                          | az completer                              |
+| [carapace-ffmpeg](https://github.com/carapace-sh/carapace-ffmpeg)                  | ffmpeg lexer and completer                |
+| [carapace-gcloud](https://github.com/carapace-sh/carapace-gcloud)                  | gcloud completer                          |
+| [carapace-jjlex](https://github.com/carapace-sh/carapace-jjlex)                    | jujutsu lexer                             |
+| [carapace-jq](https://github.com/carapace-sh/carapace-jq)                          | jq lexer                                  |
+| [carapace-magick](https://github.com/carapace-sh/carapace-magick)                  | imagemagick lexer and completer           |
+| [carapace-pnpm](https://github.com/carapace-sh/carapace-pnpm)                      | pnpm lexer                                |
 | **Scraper**                                                                        |                                           |
 | [carapace-spec-clap](https://github.com/carapace-sh/carapace-spec-clap)            | spec generation for clap-rs/clap          |
 | [carapace-spec-kingpin](https://github.com/carapace-sh/carapace-spec-kingpin)      | spec generation for alecthomas/kingpin    |
