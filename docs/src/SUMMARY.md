@@ -11,4 +11,5 @@
 - [Running Man](./runningMan.md)
 - [Greenwashing](./greenwashing.md)
 - [Wiretap](./wiretap.md)
+- [GOOS Chase](./goosChase.md)
 - [Sandcastle](./sandcastle.md)
